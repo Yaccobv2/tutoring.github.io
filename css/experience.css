@@ -1,0 +1,93 @@
+/* Add position: relative to the parent container */
+.expierience {
+  padding-top: 150px;
+  position: relative;
+  overflow: hidden; /* Hide overflow for a cleaner look */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Create a pseudo-element for the background */
+.expierience::before {
+  content: "";
+  background-image: url("../assets/png/bg-chemistry.png");
+  background-repeat: no-repeat;
+  background-color: #cccccc;
+  background-size: cover;
+  position: absolute;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the background behind content */
+}
+
+/* Style for the individual rows */
+.expierience .row {
+  padding-bottom: 100px;
+  max-width: 20rem;
+}
+
+.expierience div {
+  transition: opacity 2s, transform 2s; /* Add transition for smooth animation */
+  padding-bottom: 5rem;
+}
+
+/* Style for the text within each row */
+.expierience .text {
+  font-weight: 500;
+  line-height: 142%;
+  text-align: left;
+}
+
+@media only screen and (min-width: 550px) {
+  .expierience div {
+    max-width: 24rem;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .expierience div {
+    max-width: 18rem;
+  }
+}
+@media only screen and (min-width: 1001px) {
+  .leftSlide {
+    padding-right: 40%;
+  }
+  .rightSlide {
+    padding-left: 40%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .leftSlide {
+    padding-right: 10%;
+  }
+  .rightSlide {
+    padding-left: 10%;
+  }
+}
+/* Apply different styles to left and right slides */
+.leftSlide {
+  opacity: 0; /* Initially, hide the rows */
+  transform: translateX(100%); /* Initially, move the rows off-screen to the left */
+}
+
+.rightSlide {
+  opacity: 0; /* Initially, hide the rows */
+  transform: translateX(-50%); /* Initially, move the rows off-screen to the left */
+}
+
+/* When the row is visible, animate it in */
+.leftSlide.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* When the row is visible, animate it in */
+.rightSlide.in-view {
+  opacity: 1;
+  transform: translateX(0%);
+}
